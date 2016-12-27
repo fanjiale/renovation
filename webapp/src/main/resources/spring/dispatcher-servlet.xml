@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.2.xsd
+            http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+
+    <import resource="spring-web.xml"/>
+    <!-- 基于注解的mvc控制 -->
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean id="jsonHttpMessageConverter" class="com.skytech.ark.web.MappingFastJsonHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json</value>
+                        <value>application/x-www-form-urlencoded</value>
+                    </list>
+                </property>
+                <property name="feature">
+                    <array>
+                        <value>AllowISO8601DateFormat</value>
+                        <value>AllowSingleQuotes</value>
+                    </array>
+                </property>
+                <property name="serializerFeature">
+                    <array>
+                        <value>WriteMapNullValue</value>
+                        <value>QuoteFieldNames</value>
+                        <value>WriteDateUseDateFormat</value>
+                        <value>DisableCircularReferenceDetect</value>
+                    </array>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!--注解探测器-->
+    <context:component-scan base-package="com.skytech.ark.web; com.andy.web" />
+
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+    </bean>
+
+    <!-- 视图解析器，根据视图的名称new ModelAndView(name)，在配置文件查找对应的bean配置 -->
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        <property name="order" value="1"/>
+    </bean>
+
+    <!--基于json格式的mvc交互-->
+    <bean name="jsonView" class="com.skytech.ark.web.MappingFastJsonJsonView">
+        <property name="contentType" value="application/json;charset=UTF-8"/>
+    </bean>
+
+    <!--系统异常处理器-->
+    <bean class="com.skytech.ark.web.ArkHandlerExceptionResolver">
+        <property name="order" value="1"/>
+        <!--不写1的话，就会被spring的DefaultHandlerExceptionResolver截获，跳过-->
+    </bean>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".html"/>
+    </bean>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.andy.web.RestfulSecurityInterceptor">
+                <property name="whiteList">
+                    <array>
+                        <value>login</value>
+                        <value>userlogin</value>
+                        <value>logout</value>
+                        <value>weixinControl/dealRequest</value>
+                    </array>
+                </property>
+                <property name="login_url" value="userlogin" />
+                <property name="logout_url" value="logout" />
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+</beans>

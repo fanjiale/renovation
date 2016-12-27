@@ -1,0 +1,93 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".click").click(function () {
+            $(".tip").fadeIn(200);
+        });
+
+        $(".tiptop a").click(function () {
+            $(".tip").fadeOut(200);
+        });
+
+        $(".sure").click(function () {
+            $(".tip").fadeOut(100);
+        });
+
+        $(".cancel").click(function () {
+            $(".tip").fadeOut(100);
+        });
+
+    });
+</script>
+<div class="rightinfo">
+
+    <div class="tools">
+
+        <ul class="toolbar">
+            <li class="click"><span><img src="manager/resources/images/t01.png"/></span>添加</li>
+            <li class="click"><span><img src="manager/resources/images/t02.png"/></span>修改</li>
+            <li ng-click="batchRemove()"><span><img src="manager/resources/images/t03.png"/></span>删除</li>
+            <li><span><img src="manager/resources/images/t04.png"/></span>统计</li>
+        </ul>
+
+        <ul class="toolbar1">
+            <li><span><img src="manager/resources/images/t05.png"/></span>设置</li>
+        </ul>
+
+    </div>
+
+    <div style="position: relative;width: 100%;" ng-style="tableContentHieght">
+        <div table-content>
+            <div ng-table tableconfigs="tableconfigs">
+                <table>
+                    <thead>
+                    <tr>
+                        <th width="100px"><input name="" type="checkbox" value=""/></th>
+                        <th width="200px">编号</th>
+                        <th width="300px">用户名</th>
+                        <th width="300px">创建时间</th>
+                        <th width="300px">更新时间</th>
+                        <th width="300px">最近访问时间</th>
+                        <th width="">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in list">
+                        <td width="100px"><input name="" type="checkbox" ng-model="item.ischecked"/></td>
+                        <td width="200px" sort="code">{{item.code}}</td>
+                        <td width="300px" sort="user_name">{{item.user_name}}</td>
+                        <td width="300px">{{item.create_time}}</td>
+                        <td width="300px">{{item.update_time}}</td>
+                        <td width="300px">{{item.last_access_time}}</td>
+                        <td width=""><a href="#" class="tablelink">查看</a> <a href="#" class="tablelink"> 删除</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="tip">
+        <div class="tiptop"><span>提示信息</span><a></a></div>
+
+        <div class="tipinfo">
+            <span><img src="manager/resources/images/ticon.png"/></span>
+            <div class="tipright">
+                <p>是否确认对信息的修改 ？</p>
+                <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+            </div>
+        </div>
+
+        <div class="tipbtn">
+            <input name="" type="button" class="sure" value="确定"/>&nbsp;
+            <input name="" type="button" class="cancel" value="取消"/>
+        </div>
+
+    </div>
+
+
+</div>
+<script type="text/javascript">
+    $('.tablelist tbody tr:odd').addClass('odd');
+</script>

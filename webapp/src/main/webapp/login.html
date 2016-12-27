@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>登陆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <style type="text/css">
+        .form-signin {
+            max-width: 330px;
+            padding: 15px;
+            margin: 0 auto;
+        }
+        .form-signin .form-signin-heading,
+        .form-signin .checkbox {
+            margin-bottom: 10px;
+        }
+        .form-signin .checkbox {
+            font-weight: normal;
+        }
+        .form-signin .form-control {
+            position: relative;
+            height: auto;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+        .form-signin input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container" ng-controller="loginController">
+    <form class="form-signin" role="form" ng-submit="login()" name="loginForm">
+        <h2 class="form-signin-heading"><span class="glyphicon glyphicon-user"></span>  用户登录</h2>
+        <input type="text" class="form-control" placeholder="账号" required="" autofocus="" ng-model="user_code" >
+        <input type="password" class="form-control" placeholder="密码" required="" ng-model="password">
+        <!--<div class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>-->
+        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="loginForm.$invalid">登录</button>
+    </form>
+</div>
+
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script type="text/javascript">
+    angular.module("myApp",[]).controller("loginController", function ($scope, $http) {
+        $scope.errorMsg = '';
+
+        $scope.login = function () {
+            $scope.errorMsg = '';
+            if(!$scope.user_code || !$scope.password){
+                $scope.errorMsg = '用户名或密码不能为空';
+                return;
+            }
+
+            $http.post("userlogin", {
+                user_code: $scope.user_code,
+                password: $scope.password
+            }).success(function (response) {
+                if (response.success) {
+                    window.location.href='./';
+                } else {
+                    $scope.errorMsg = response.msg;
+                }
+            });
+        };
+    });
+
+    angular.element(document).ready(function () {
+        angular.bootstrap(angular.element('body'), ['myApp']);
+    });
+
+    //test
+</script>
+</body>
+</html>

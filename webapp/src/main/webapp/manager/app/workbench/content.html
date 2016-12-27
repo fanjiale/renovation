@@ -1,0 +1,24 @@
+<style>
+    img {
+        vertical-align: inherit;
+    }
+    *, *:before, *:after {
+        -webkit-box-sizing: initial;
+    }
+</style>
+<div class="content">
+    <div class="place" ng-controller="locationController">
+        <span>位置：</span>
+        <ul class="placeul" ng-cloak>
+            <li ng-repeat="location in locations"><a href="">{{location.label}}</a></li>
+        </ul>
+    </div>
+    <div ui-view></div>
+
+    <!--遮罩层-->
+    <div class="waitTipDiv" id="waitTip">
+        <div class="w_loading2">
+            <div class="card"><span class="hexdots-loader">Loading…</span></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>信息管理系统界面</title>
+
+    <link href="manager/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="manager/resources/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="manager/app/directive/ng-table/ng-table.css" rel="stylesheet" type="text/css"/>
+    <link href="manager/resources/css/common.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-animate) {
+            display: none !important;
+
+        }
+
+        .nav>li>a {
+            padding: inherit;
+        }
+    </style>
+</head>
+<body ng-app="diamond">
+<div class="top">
+    <div class="topleft">
+        <a href=""><img src="manager/resources/images/logo.png" title="系统首页"/></a>
+    </div>
+    <ul class="nav" ng-cloak>
+        <li>
+            <a href="" ui-sref="home.dashboard" ui-sref-active="selected">
+                <img src="manager/resources/images/icon02.png" title="首页"/>
+                <h2>首页</h2>
+            </a>
+        </li>
+        <li>
+            <a href="" ui-sref="workbench.config" ng-class="{selected: $state.includes('workbench')}">
+                <img src="manager/resources/images/icon01.png" title="工作台"/>
+                <h2>工作台</h2>
+            </a>
+        </li>
+        <li>
+            <a href="" ui-sref="system.user" ng-class="{selected: $state.includes('system')}">
+                <img src="manager/resources/images/icon06.png" title="系统设置"/>
+                <h2>系统设置</h2>
+            </a>
+        </li>
+    </ul>
+    <div class="topright">
+        <ul>
+            <li><span><img src="manager/resources/images/help.png" title="帮助" class="helpimg"/></span><a href="">帮助</a></li>
+            <li><a href="">关于</a></li>
+            <li><a href="">退出</a></li>
+        </ul>
+
+        <div class="user">
+            <span>admin</span>
+            <i>消息</i>
+            <b>5</b>
+        </div>
+
+    </div>
+</div>
+
+<div class="main">
+    <div ng-cloak ui-view></div>
+    <!--菜单-->
+    <div ng-cloak ui-view="left"></div>
+
+    <!--主体-->
+    <div ng-cloak ui-view="right"></div>
+</div>
+
+<div class="bottom">
+    <div class="footer">
+        <span>仅供学习交流，请勿用于任何商业用途</span>
+        <i>版权所有 2014 uimaker.com</i>
+    </div>
+</div>
+
+<div class="waitTipDiv" id="waitTip">
+    <div class="w_loading2">
+        <div class="card"><span class="hexdots-loader">Loading…</span></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="manager/lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="manager/lib/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="manager/resources/js/common.js"></script>
+
+<script type="text/javascript" src="manager/lib/angular/angular.js"></script>
+<script type="text/javascript" src="manager/lib/angular/angular-ui-router.min.js"></script>
+
+<script type="text/javascript" src="manager/app/appStates.js"></script>
+<script type="text/javascript" src="manager/app/diamond.js"></script>
+<script type="text/javascript" src="manager/app/main.js"></script>
+
+<script type="text/javascript" src="manager/app/common/common-service.js"></script>
+
+<script type="text/javascript" src="manager/app/directive/ng-table/ng-table.js"></script>
+
+<script type="text/javascript" src="manager/app/menu-ctrl.js"></script>
+<script type="text/javascript" src="manager/app/home/dashboard-ctrl.js"></script>
+<script type="text/javascript" src="manager/app/system/user-manager-ctrl.js"></script>
+<script type="text/javascript" src="manager/app/system/role-manager-ctrl.js"></script>
+<script type="text/javascript" src="manager/app/workbench/config-manager-ctrl.js"></script>
+
+
+</body>
+</html>

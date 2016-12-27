@@ -1,0 +1,40 @@
+<div class="mainLeft" ng-controller="menuController">
+    <div class="lefttop"><span></span>导航栏</div>
+
+    <dl ng-cloak class="leftmenu" style="padding-bottom:inherit;margin-bottom:inherit;">
+        <dd>
+            <!--一级菜单-->
+            <div class="title"><span><img src="manager/resources/images/leftico01.png" /></span>系统管理</div>
+            <!--二级菜单-->
+            <ul class="menuson open">
+                <li ui-sref="system.user" ui-sref-active="active"><cite></cite><a href="">用户管理</a><i></i></li>
+                <li ui-sref="system.role" ui-sref-active="active"><cite></cite><a href="">角色管理</a><i></i></li>
+                <li><cite></cite><a href="">权限管理</a><i></i></li>
+            </ul>
+        </dd>
+        <dd>
+            <div class="title"><span><img src="manager/resources/images/leftico02.png" /></span>系统配置</div>
+            <ul class="menuson">
+                <li><cite></cite><a href="">自定义</a><i></i></li>
+                <li><cite></cite><a href="">常用资料</a><i></i></li>
+                <li><cite></cite><a href="">信息列表</a><i></i></li>
+                <li><cite></cite><a href="">其他</a><i></i></li>
+
+                <!--三级菜单-->
+                <!--<li>
+                    <div class="header">
+                        <cite></cite>
+                        <a href="index.html" target="rightFrame">首页模版</a>
+                        <i></i>
+                    </div>
+                    <ul class="sub-menus">
+                        <li><a href="javascript:;">文件管理</a></li>
+                        <li><a href="javascript:;">模型信息配置</a></li>
+                        <li><a href="javascript:;">基本内容</a></li>
+                        <li><a href="javascript:;">自定义</a></li>
+                    </ul>
+                </li>-->
+            </ul>
+        </dd>
+    </dl>
+</div>

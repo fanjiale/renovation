@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sky:namedqueries xmlns:sky="http://www.skytech.com/ark/jdbc/query">
+    <namedquery>
+        <name>com.andy.dao.impl.list</name>
+        <description>系统用户列表</description>
+        <content>
+            <![CDATA[
+                      select * from s_user where user_name like :user_name :sort :order
+            ]]>
+        </content>
+    </namedquery>
+</sky:namedqueries>

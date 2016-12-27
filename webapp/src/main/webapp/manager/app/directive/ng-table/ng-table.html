@@ -1,0 +1,54 @@
+<style type="text/css">
+</style>
+<div class="tableContent" table-compile>
+    <div class="compileContent">
+        <div class="tableHead">
+            <table class="tablelist tableOverride">
+                <thead>
+
+                </thead>
+            </table>
+        </div>
+
+        <div class="tableBody">
+            <table class="tablelist tableOverride" style="border-top: 0;">
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="pagin">
+        <div class="message">
+            <ul class="paginList" style="left: 15px;font-size: 1.1em;">
+                <li class="paginItem" ng-click="params.preAll()">
+                    <i class="ui-preall-btn dib"></i>
+                </li>
+                <li class="paginItem" ng-click="params.pre()">
+                    <i class="ui-pre-btn dib"></i>
+                </li>
+                <li class="paginItem">
+                    <span>&nbsp;&nbsp;当前显示第&nbsp;&nbsp;</span>
+                </li>
+                <li class="paginItem">
+                    <form role="form" ng-submit="params.pageTo()">
+                        <span><input type="text" style="width: 30px;height: 15px;" ng-model="tableParameters.currentPage" ></span>
+                    </form>
+                </li>
+                <li class="paginItem">
+                    <span>&nbsp;&nbsp;页&nbsp;&nbsp;&nbsp;共 {{tableParameters.pageTotal}} 页</span>
+                </li>
+                <li class="paginItem" ng-click="params.next()">
+                    <i class="ui-next-btn dib"></i>
+                </li>
+                <li class="paginItem" ng-click="params.nextAll()">
+                    <i class="ui-nextall-btn dib"></i>
+                </li>
+                <li class="paginItem">
+                    <span>&nbsp;&nbsp;&nbsp共 {{tableParameters.total}} 记录</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<style type="text/css">
+    .main_config {
+        padding: 15px;
+    }
+
+    .menu_config {
+        height: 110px;
+    }
+
+    input, select, textarea {
+        font-family: 'Microsoft YaHei', Arial, Lucida Grande, Tahoma, sans-serif;
+        border-radius: 2px;
+        font-size: 14px;
+        color: #999;
+        height: 36px;
+        vertical-align: middle;
+        line-height: 38px;
+
+    }
+
+    input, select, textarea {
+        border: 1px solid #bdbdbd;
+        color: #999;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        /* box-shadow: 0 0 1px rgba(110, 189, 222, 0.8);*/
+        border-radius: 2px;
+        border: 1px solid #69ca70;
+        color: #000;
+    }
+
+    .wid {
+        width: 250px;
+    }
+
+    input.btnc {
+        width: 165px;
+        background: #69be2e;
+        color: #fff;
+        font-weight: bold;
+        font-size: 18px;
+        border: 1px solid #5eb423;
+        cursor: pointer;
+        height: 38px;
+    }
+
+    input.btnc:hover {
+        background: #74d232
+    }
+</style>
+<div class="rightinfo">
+    <div class="main_config">
+        <div class="menu_config">
+            <a class="menu2" href="" ng-click="selectMenu('1')" title="更新菜单"></a>
+            <a class="menu1" href="" ng-click="selectMenu('2')" title="刷新配置"></a>
+            <a class="menu3" href="" ng-click="selectMenu('3')" title="二维码生成"></a>
+        </div>
+        <div class="content_config ng-scope">
+            <b id="rt" ng-class="{left1 : selectedMenu == '1',left2 : selectedMenu == '2',left3 : selectedMenu == '3' }"></b>
+            <div class="MenuRe_left" ng-class="{'active' : selectedMenu == '1'}">
+                <ul>
+                    <li>更新微信公众号菜单：</li>
+                    <li>
+                        <input type="submit" name="rmButton" id="rmButton" value="更新" class="btnc"
+                               ng-click="refreshMenu()">
+                    </li>
+                </ul>
+            </div>
+            <div class="CacheRe_left" ng-class="{'active' : selectedMenu == '2'}">
+                <ul>
+                    <li>刷新服务器配置：</li>
+                    <li>
+                        <input type="submit" name="rcButton" id="rcButton" value="刷新" class="btnc"
+                               ng-click="refreshConfig()">
+                    </li>
+                </ul>
+            </div>
+            <div class="QRcode_left" ng-class="{'active' : selectedMenu == '3'}">
+                <ul>
+                    <li>公众号二维码参数：</li>
+                    <li>
+                        <input name="textfield" type="text" class="wid" id="sceneId" placeholder="请输入一个ID作为参数(0-99999)"
+                               maxlength="5" onkeyup="this.value=this.value.replace(/[^\d]/g,'')"
+                               onafterpaste="this.value=this.value.replace(/[^\d]/g,'')">
+                    </li>
+                    <li>
+                        <input type="submit" name="button" id="button" value="生成二维码" class="btnc" ng-click="getQr()">
+                    </li>
+                </ul>
+            </div>
+            <div class="QRcode_right" ng-class="{'active' : selectedMenu == '3'}">公众号二维码生成区：<br>
+                <img id="qrImg" src="" width="430" height="430" style="display: none;"></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

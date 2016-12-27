@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sky:namedqueries xmlns:sky="http://www.skytech.com/ark/jdbc/query">
+    <namedquery>
+        <name>com.skytech.enm.persistences.mysql.MySQLAnnualFigureDAO.getAnnualFigureSQL</name>
+        <description>获取所有年度指标</description>
+        <content>
+            <![CDATA[
+                    SELECT
+	                    af.pkid,af.name,af.code,af.source,u.name unit
+                    FROM
+	                    ANNUAL_FIGURE af,UNIT u
+                    WHERE
+                        af.unit_id=u.pkid and af.source=:source;
+            ]]>
+        </content>
+    </namedquery>
+</sky:namedqueries>
