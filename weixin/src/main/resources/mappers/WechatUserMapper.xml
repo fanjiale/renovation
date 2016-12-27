@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.weixin.common.mapper.WechatUserMapper">
+    <resultMap id="BaseResultMap" type="com.weixin.common.model.user.WechatUser">
+        <id column="id" property="id"/>
+        <id column="open_id" property="open_id"/>
+        <id column="subscribe_status" property="subscribe_status"/>
+        <id column="status_time" property="status_time"/>
+        <id column="subscribe_time" property="subscribe_time"/>
+        <id column="nick_name" property="nick_name"/>
+        <id column="sex" property="sex"/>
+        <id column="city" property="city"/>
+        <id column="language" property="language"/>
+        <id column="province" property="province"/>
+        <id column="country" property="country"/>
+        <id column="head_img_url" property="head_img_url"/>
+        <id column="union_id" property="union_id"/>
+        <id column="remark" property="remark"/>
+        <id column="group_id" property="group_id"/>
+        <id column="create_time" property="create_time"/>
+    </resultMap>
+
+    <select id="queryWechatUserByOpenId" resultType="com.weixin.common.model.user.WechatUser"
+            parameterType="java.lang.String">
+		select id,open_id,subscribe_status,status_time,subscribe_time,nick_name,sex,city,language,province,country,head_img_url,
+		union_id,remark,group_id,create_time from wechat_user where open_id = #{open_id,jdbcType=VARCHAR}
+	</select>
+
+    <select id="queryWechatUserCountByOpenId" resultType="java.lang.Integer"
+            parameterType="java.lang.String">
+        select count(*) num from wechat_user where open_id = #{open_id,jdbcType=VARCHAR}
+    </select>
+
+    <insert id="insertWechatUser" parameterType="com.weixin.common.model.user.WechatUser">
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        Insert Into wechat_user
+        (id,open_id,subscribe_status,status_time,subscribe_time,nick_name,sex,city,language,province,country,head_img_url,union_id,remark,group_id,create_time)
+        Values
+        (#{id},#{open_id},#{subscribe_status},now(),now(),#{nick_name},#{sex},#{city}, #{language},
+        #{province},#{country},#{head_img_url},#{union_id},#{remark},#{group_id},now())
+    </insert>
+
+    <update id="updateWechatUser" parameterType="com.weixin.common.model.user.WechatUser">
+        Update wechat_user Set subscribe_status = #{subscribe_status},status_time = now(),
+        nick_name = #{nick_name},sex = #{sex},city = #{city},language = #{language},
+        province = #{province},country = #{country},head_img_url = #{head_img_url},union_id = #{union_id},
+        remark = #{remark},group_id = #{group_id},
+        <if test="subscribe_status == 1">
+            subscribe_time = now(),
+        </if>
+        status_time = now()
+        Where open_id = #{open_id}
+    </update>
+
+</mapper>

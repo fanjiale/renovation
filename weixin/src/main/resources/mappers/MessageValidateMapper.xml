@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.weixin.common.mapper.MessageValidateMapper">
+    <resultMap id="BaseResultMap" type="com.weixin.common.model.validate.ValidateMessage">
+        <id column="id" property="id"/>
+        <id column="open_id" property="open_id"/>
+        <id column="phone_num" property="phone_num"/>
+        <id column="ver_code" property="ver_code"/>
+        <id column="expires_in" property="expires_in"/>
+        <id column="create_time" property="create_time"/>
+    </resultMap>
+
+    <insert id="insertValidateMessage" parameterType="com.weixin.common.model.validate.ValidateMessage">
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        Insert Into validate_message
+        (id, open_id, phone_num, expires_in,ver_code,create_time)
+        Values
+        (#{id},#{open_id},#{phone_num},#{expires_in},#{ver_code},now())
+    </insert>
+
+    <select id="countOpenIdValidateTimes" resultType="java.lang.Long">
+  		select count(1) from validate_message where open_id = #{open_id,jdbcType=VARCHAR}
+  		and create_date > now() - #{limitTime}
+  	</select>
+
+    <select id="queryValidateMessage" resultType="com.weixin.common.model.validate.ValidateMessage"
+            parameterType="com.weixin.common.model.validate.ValidateMessage">
+  	 select 	
+		msg_id as "msgId",
+		open_id  as "openId",
+		acc_nbr as "accNbr",
+		validate_code as "vCode",
+		create_date as "createDate"
+		from validate_message t where t.msg_id = #{msgId} and t.open_id = #{openId}
+		and t.acc_nbr = #{accNbr} and t.validate_code = #{vCode}
+		and sysdate between create_date and exp_date
+  	</select>
+
+    <select id="getUamTransactionSeq" resultType="java.lang.String">
+		<![CDATA[
+		select To_Char(Sysdate, 'yyyymmdd')||Lpad(SEQ_UAM_TRANSACTION_NBR.Nextval, 10, 0) from dual
+        ]]>
+	</select>
+</mapper>

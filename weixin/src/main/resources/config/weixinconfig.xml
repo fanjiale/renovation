@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+	<!-- 基础配置 -->
+	<Base>
+		<!-- 公众号taken -->
+		<Taken>weixin</Taken>
+		<!-- 公众号appid -->
+		<AppID>wx5f50b6ea8e419735</AppID>
+		<!-- 公众号secret -->
+		<Secret>6ab09d3dc66aeaa6068f3ddd78b1450e</Secret>
+	</Base>
+	<!-- 校验短信配置 （直接对接短信平台，不通过UAM校验时使用）-->
+	<ValidateMessage>
+		<!-- 验证方式  0：UAM接口，1：平台接口，默认0 -->
+		<Type>0</Type>
+		<!-- 校验码失效时间 -->
+		<ExpTime>5</ExpTime>
+		<!-- 短信发送次数限制(与LimitTime配合使用) 0不限制-->
+		<Limit>0</Limit>
+		<!-- 短信发送次数限制时长(表示LimitTime分钟内最多发送Limit次校验码)  0 不限制-->
+		<LimitTime>0</LimitTime>
+		<!-- 发送方式HTTP/WEBSERVCIE -->
+		<SendMode>HTTP</SendMode>
+		<!-- 短信平台URL -->
+		<URL>http://duanxinpingtai</URL>
+	</ValidateMessage>
+	
+	<!--客服消息配置-->
+	<CustServiceMessage>
+		<CustMsgList>
+			<CustMsg>
+				<!-- 文本消息 -->
+				<MsgType>text</MsgType>
+				<Key>11</Key>
+				<MsgContent>Hello World!</MsgContent>
+			</CustMsg>
+			<CustMsg>
+				<!-- 图文消息 -->
+				<MsgType>news</MsgType>
+				<Key>12</Key>
+				<Articles>
+					<item>
+						<Title>图文消息</Title>
+						<Description>测试测试！</Description>
+						<PicUrl>http://xmz9172.xicp.net/weixin-manager-web/menuImages/big_img_4.jpg</PicUrl>
+						<Url>http://xmz9172.xicp.net/weixin-manager-web/index.jsp</Url>
+					</item>
+				</Articles>
+			</CustMsg>
+		</CustMsgList>
+	</CustServiceMessage>
+	<!-- 媒体文件存放本地服务器目录配置 包括群发消息媒体文件、素材媒体文件-->
+	<MediaFileLocation>
+		<!-- 图片文件存放目录 -->
+		<ImageLocation>F:/ImageLocation/</ImageLocation>
+		<!-- 视频文件存放目录 -->
+		<VideoLocation>F:/VideoLocation/</VideoLocation>
+		<!-- 音频文件 -->
+		<MusicLocation>F:/MusicLocation/</MusicLocation>
+		<!-- 群发图文消息 -->
+		<NewsLocation>
+			<!-- 群发图文消息图片文件 -->
+			<Image>F:/NewsLocation/Image/</Image>
+			<!-- 群发图文消息Html文件 -->
+			<Html>F:/NewsLocation/Html/</Html>
+		</NewsLocation>
+	</MediaFileLocation>  
+</Config>

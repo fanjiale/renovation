@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EventManage>
+	<!-- 订阅消息事件 -->
+	<SubscribeEvent>
+		<!-- 事件类型  -->
+		<EventType></EventType>
+		<!-- 回复消息类型 -->
+		<MsgType>news</MsgType>
+		<!-- 消息内容 -->
+		<MsgContent>欢迎欢迎！热烈欢迎！</MsgContent>
+		<!-- 图文内容 -->
+		<Articles>
+			<item>
+				<!-- 标题 -->
+				<Title>欢迎您！</Title>
+				<!-- 描述 -->
+				<Description>欢迎访问！</Description>
+				<!-- 图片地址 -->
+				<PicUrl>/menuImages/big_img_4.jpg</PicUrl>
+				<!-- 跳转地址 -->
+				<Url>/index.jsp</Url>
+			</item>
+		</Articles>
+	</SubscribeEvent>
+	<!-- 菜单事件处理 -->
+	<MenuEventList>
+		<MenuEvent>
+			<EventType>click</EventType>
+			<MsgType>news</MsgType>
+			<Key>11</Key>
+			<Articles>
+				<item>
+					<Title>订购查询</Title>
+					<Description></Description>
+					<PicUrl>/menuImages/big_img_1.jpg</PicUrl>
+					<Url>/viewController/uesrAccessController?url=orderRelation/orderRelation.jsp</Url>
+				</item>
+				<item>
+					<Title>订购查询--小图</Title>
+					<Description></Description>
+					<PicUrl>/menuImages/big_img_2.jpg</PicUrl>
+					<Url>/viewController/uesrAccessController?url=orderRelation/orderRelation.jsp</Url>
+				</item>
+			</Articles>
+		</MenuEvent>
+		<MenuEvent>
+			<EventType>click</EventType>
+			<MsgType>news</MsgType>
+			<Key>12</Key>
+			<Articles>
+				<item>
+					<Title>清单查询</Title>
+					<Description>查询您近期6个月的点播话单！</Description>
+					<PicUrl>/menuImages/big_img_3.jpg</PicUrl>
+					<Url>/viewController/uesrAccessController?url=demaRecord/demaRecMonth.jsp</Url>
+				</item>
+			</Articles>
+		</MenuEvent>
+		<MenuEvent>
+			<EventType>click</EventType>
+			<MsgType>news</MsgType>
+			<Key>13</Key>
+			<Articles>
+				<item>
+					<Title>业务退订</Title>
+					<Description>查询您当前可退订的业务并退订！</Description>
+					<PicUrl>/menuImages/big_img_5.jpg</PicUrl>
+					<Url>/viewController/uesrAccessController?url=subscribe/businessUnsub.jsp</Url>
+				</item>
+			</Articles>
+		</MenuEvent>
+		<MenuEvent>
+			<EventType>click</EventType>
+			<MsgType>news</MsgType>
+			<Key>34</Key>
+			<Articles>
+				<item>
+					<Title>天翼生活--IOS</Title>
+					<Description></Description>
+					<PicUrl>/menuImages/big_img_1.jpg</PicUrl>
+					<Url><![CDATA[https://itunes.apple.com/cn/app/tian-yi-sheng-huo-yuan-tian/id634340965?l=en&mt=8]]></Url>
+				</item>
+				<item>
+					<Title>天翼生活--Android</Title>
+					<Description></Description>
+					<PicUrl>/menuImages/big_img_2.jpg</PicUrl>
+					<Url><![CDATA[http://www.appchina.com/app/com.ataaw.tianyi]]></Url>
+				</item>
+			</Articles>
+		</MenuEvent>
+	</MenuEventList>
+</EventManage>

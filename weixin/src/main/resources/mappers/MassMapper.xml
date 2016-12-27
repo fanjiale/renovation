@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.weixin.common.mapper.MassMapper" >
+	
+	<insert id="insertMassEvent" parameterType="com.weixin.common.model.mass.MassEvent">
+		insert into Mass_Event
+		(MASS_ID
+		,MEDIA_ID
+		,MASS_DESC
+		,MASS_STYLE
+		,STATUS_CD
+		,CREATE_DATE
+		)values(
+		 #{massId}
+		,#{mediaId,jdbcType=VARCHAR}
+		,#{massDesc,jdbcType=VARCHAR}
+		,#{massStyle}
+		,#{statusCd,jdbcType=VARCHAR}
+		,SYSDATE
+		)
+	</insert>
+	
+	<insert id="insertMaterialContent" parameterType="com.weixin.common.model.mass.MaterialContent">
+		insert into MATERIAL_CONTENT
+		(MATERIAL_ID
+		,MATERIAL_TYPE
+		,media_id
+		,local_media_path
+		,html_file_path
+		,author
+		,content_source_url
+		,title
+		,content
+		,create_date
+		,update_date
+		)values
+		(#{materialId}
+		,#{materialType}
+		,#{mediaId,jdbcType=VARCHAR}
+		,#{localMediaPath,jdbcType=VARCHAR}
+		,#{htmlFilePath,jdbcType=VARCHAR}
+		,#{author,jdbcType=VARCHAR}
+		,#{contentSourceUrl,jdbcType=VARCHAR}
+		,#{title,jdbcType=VARCHAR}
+		,#{content,jdbcType=VARCHAR}
+		,sysdate
+		,sysdate
+		)
+	</insert>
+	
+	<insert id="insertMassContentRel" parameterType="com.weixin.common.model.mass.MassContentRel">
+		insert into MASS_CONTENT_Rel
+		(mass_id
+		,MATERIAL_ID
+		,create_date
+		)values
+		(#{massId}
+		,#{materialId}
+		,SYSDATE
+		)
+	</insert>
+	
+	<select id="selectMassEventById" parameterType="java.lang.Long" resultType="com.weixin.common.model.mass.MassEvent">
+		select MASS_ID "massId"
+	    ,MEDIA_ID "mediaId"
+	    ,MASS_DESC "massDesc"
+	    ,MASS_STYLE "massStyle"
+	    ,STATUS_CD "statusCd"
+	    ,CREATE_DATE "createDate"
+	    ,(select min(material_Type) from MATERIAL_CONTENT a ,MASS_CONTENT_Rel b
+	    where  a.MATERIAL_ID = b.MATERIAL_ID  and b.mass_id =#{massId,jdbcType=NUMERIC}) "type",
+	    (select min(mt.name) from MATERIAL_CONTENT a ,MASS_CONTENT_Rel b,
+	    MATERIAL_TYPE mt 
+	    where mt.MATERIAL_TYPE_CD = a.MATERIAL_TYPE and a.MATERIAL_ID = b.MATERIAL_ID  and b.mass_id = #{massId,jdbcType=NUMERIC}) "typeDesc"
+	     from mass_event where mass_id =#{massId,jdbcType=NUMERIC}
+	</select>
+	
+	<select id="selectMaterialContentByMassId" parameterType="java.lang.Long" resultType="com.weixin.common.model.mass.MaterialContent">
+		select  
+		 mc.MATERIAL_ID "materialId"
+		,mc.MATERIAL_TYPE "materialType"
+		,mt.Name "materialTypeDesc"
+		,mc.media_id "mediaId"
+		,mc.local_media_path "localMediaPath"
+		,mc.html_file_path "htmlFilePath"
+		,mc.author "author"
+		,mc.content_source_url "contentSourceUrl"
+		,mc.title "title"
+		,mc.content "content"
+		,mc.create_date "createDate"
+		,mc.update_date "updateDate"
+		 from MATERIAL_CONTENT mc,MASS_CONTENT_Rel mcr 
+		 , MATERIAL_TYPE mt 
+		 where mt.MATERIAL_TYPE_CD = mc.MATERIAL_TYPE
+		  and mc.MATERIAL_ID = mcr.MATERIAL_ID
+		 and mcr.mass_id = #{massId}
+	</select>
+	
+	<select id="selectMaterialContent" parameterType="java.lang.Long" resultType="com.weixin.common.model.mass.MaterialContent">
+		select  
+		mc.MATERIAL_ID "materialId"
+		,mc.MATERIAL_TYPE "materialType"
+		,mt.Name "materialTypeDesc"
+		,mc.media_id "mediaId"
+		,mc.local_media_path "localMediaPath"
+		,mc.html_file_path "htmlFilePath"
+		,mc.author "author"
+		,mc.content_source_url "contentSourceUrl"
+		,mc.title "title"
+		,mc.content "content"
+		,mc.create_date "createDate"
+		,mc.update_date "updateDate"
+		 from MATERIAL_CONTENT mc,
+		    MATERIAL_TYPE mt
+		where mt.MATERIAL_TYPE_CD = mc.MATERIAL_TYPE
+		 and mc.MATERIAL_ID=#{materialId}
+	</select>
+	
+	<select id="queryMassEventList" parameterType="java.util.Map" resultType="com.weixin.common.model.mass.MassEvent">
+	<![CDATA[ 	Select *
+		From   (Select a.*
+		              ,Rownum Rn
+		        From   (Select distinct(Mae.Mass_Id)
+		                      ,Mae.Mass_Desc
+		                      ,Mae.Mass_Style
+		                      ,Mae.Status_Cd
+		                      ,Mae.Upload_Date
+		                      ,Mae.Send_Date
+		                From   Mass_Event       Mae
+		                      ,MASS_CONTENT_Rel Macr
+		                      ,MATERIAL_CONTENT     Mac
+		                Where  Mae.Mass_Id = Macr.Mass_Id
+		                       And Macr.MATERIAL_ID = Mac.MATERIAL_ID
+		                       And Mac.MATERIAL_TYPE = #{type}) a
+		        Where  Rownum <= #{endPage})
+		Where  Rn >= #{startPage}
+		]]>
+	</select>
+	
+	<update id="updateMassEvent" parameterType="com.weixin.common.model.mass.MassEvent">
+	    Update Mass_Event Mae
+		Set    Mae.Media_Id   = #{mediaId,jdbcType=VARCHAR},
+		       Mae.Mass_Desc  = #{massDesc,jdbcType=VARCHAR},
+		       Mae.Mass_Style = #{massStyle,jdbcType=VARCHAR},
+		       Mae.Status_Cd = #{statusCd,jdbcType=VARCHAR},
+		       Mae.Msg_Id = #{msgId,jdbcType=VARCHAR},
+		       Mae.Status_date = sysdate
+		Where  Mae.Mass_Id = #{massId}
+	</update>
+	
+	<update id="updateMaterialContent" parameterType="com.weixin.common.model.mass.MaterialContent">
+	  	Update MATERIAL_CONTENT Mac
+		Set    Mac.Media_Id           = #{mediaId,jdbcType=VARCHAR},
+			   Mac.Local_media_path   = #{localMediaPath,jdbcType=VARCHAR},
+		       Mac.Html_File_Path     = #{htmlFilePath,jdbcType=VARCHAR},
+		       Mac.Author             = #{author,jdbcType=VARCHAR},
+		       Mac.Content_Source_Url = #{contentSourceUrl,jdbcType=VARCHAR},
+		       Mac.Title              = #{title,jdbcType=VARCHAR},
+		       Mac.Content            = #{content,jdbcType=VARCHAR},
+		       Mac.Update_Date        = Sysdate
+		Where  Mac.MATERIAL_ID = #{materialId}
+	</update>
+	
+	<delete id="deleteMassContentRel" parameterType="com.weixin.common.model.mass.MassContentRel">
+		Delete From MASS_CONTENT_Rel Macr
+		Where  Macr.Mass_Id = #{massId}
+		       And Macr.MATERIAL_ID = #{materialId}
+  	</delete>
+  	
+  	<delete id="deleteMassEvent" parameterType="com.weixin.common.model.mass.MassEvent">
+		Delete From MASS_Event me
+		Where  Me.Mass_Id = #{massId}
+  	</delete>
+  	
+  	<delete id="deleteMaterialContent" parameterType="com.weixin.common.model.mass.MaterialContent">
+		Delete From MATERIAL_CONTENT Mc
+		Where  Mc.MATERIAL_ID = #{materialId} 
+  	</delete>
+  	
+  	<select id="queryMassEvent" parameterType="java.lang.Integer"  resultType="com.weixin.common.model.mass.MassEvent">
+	<![CDATA[ 
+	   	  Select a.Mass_Id As "massId"
+		         ,a.Mass_Desc As "massDesc"
+		         ,a.Mass_Style As "massStyle"
+		         ,a.Status_Cd As "statusCd"
+		         ,a.Status_Date As "statusDate"
+		         ,Decode(a.Mass_Style, 0,'全部发送',1,'按群组发送',2,'按用户发送','') As "massStyleDesc"
+		         ,d.Name As "statusCdDesc"
+		  From   Mass_Event  a
+		        ,Mass_Status d
+		  Where  Exists (Select 1
+		          From   Mass_Content_Rel b
+		                ,Material_Content c
+		          Where  a.Mass_Id = b.Mass_Id
+		                 And b.material_id = c.material_id
+		                 And c.material_type = #{type})
+		         And a.Status_Cd = d.Status_Cd
+		  Order  By a.Status_Date Desc
+	]]>
+	</select>
+	
+	<select id="getMassIdBySeq" resultType="java.lang.Long">
+		select SEQ_MASS_EVENT.nextval from dual
+	</select>
+	<select id="getMaterialIdBySeq" resultType="java.lang.Long">
+		select SEQ_MATERIAL_CONTENT.nextval from dual
+	</select>
+</mapper>

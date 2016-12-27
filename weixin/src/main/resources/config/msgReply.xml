@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReqMsg>
+	<!--默认回复方式，必配参数，只能为text/news-->
+	<DefaultRespMsgType>text</DefaultRespMsgType>
+	<!--默认回复方式，默认为空-->
+	<DefaultRespMsgContent>
+		1、 功能1 
+		2 、功能2
+		3、 功能333
+		4、 功能4
+	</DefaultRespMsgContent>
+	<DefaultRespArticles>
+		<Articles>
+			<item>
+				<!-- 图文标题 -->
+				<Title>asadasd</Title>
+				<!-- 图文描述 -->
+				<Description>asdasdasd</Description>
+				<!-- 图片地址 -->
+				<PicUrl>asdasds</PicUrl>
+				<!-- 跳转地址 -->
+				<Url/>
+			</item>
+		</Articles>
+	</DefaultRespArticles>
+	<!--text请求消息内容-->
+	<ReqTextContent>
+		<!--请求消息内容值：具体的文字描述-->
+		<ReqContentValue>1</ReqContentValue>
+		<!--消息回复方式：sync/async，默认sync，该字段必填-->
+		<ReplyMode>sync</ReplyMode>
+		<!-- 异步调用地址 aync有效-->
+		<AsyncUrl></AsyncUrl>
+		<!--消息回复类型：text/image/voice/video/music/news，仅支持text和news，,采用异步模式时仅支持text消息回复-->
+		<RespMsgType>text</RespMsgType>
+		<!--该节点仅针对回复类型为text有效-->
+		<MsgContent>欢迎访问江苏电信公众号 /::D/::D/::D</MsgContent>
+		<!--该节点仅针对回复类型为news有效-->
+		<Articles>
+			<item>
+				<!-- 图文标题 -->
+				<Title/>
+				<!-- 图文描述 -->
+				<Description/>
+				<!-- 图片地址 -->
+				<PicUrl/>
+				<!-- 跳转地址 -->
+				<Url/>
+			</item>
+		</Articles>
+	</ReqTextContent>
+	<ReqTextContent>
+		<ReqContentValue>2</ReqContentValue>
+		<ReplyMode>sync</ReplyMode>
+		<RespMsgType>news</RespMsgType>
+		<MsgContent></MsgContent>
+		<Articles>
+			<item>
+				<Title>天翼4G 分享美好生活</Title>
+				<Description>极速百兆 畅享全国</Description>
+				<PicUrl>/menuImages/big_img_1.jpg</PicUrl> 
+				<Url></Url>
+			</item>
+		</Articles>
+	</ReqTextContent>
+	<ReqTextContent>
+		<ReqContentValue>3</ReqContentValue>
+		<ReplyMode>sync</ReplyMode>
+		<RespMsgType>news</RespMsgType>
+		<MsgContent></MsgContent>
+		<Articles>
+			<item>
+				<Title>江苏电信创新营销</Title>
+				<Description>江苏电信创新营销 炸鸡啤酒活动掀热潮</Description>
+				<PicUrl>/menuImages/big_img_6.jpg</PicUrl> 
+				<Url></Url>
+			</item>
+		</Articles>
+	</ReqTextContent>
+	<ReqTextContent>
+		<ReqContentValue>4</ReqContentValue>
+		<ReplyMode>sync</ReplyMode>
+		<RespMsgType>news</RespMsgType>
+		<MsgContent></MsgContent>
+		<Articles>
+			<item>
+				<Title>3G升4G 流量翻翻</Title>
+				<Description>畅享4G套餐 赠国内流量 送免费话费</Description>
+				<PicUrl>/menuImages/big_img_4.jpg</PicUrl> 
+				<Url></Url>
+			</item>
+		</Articles>
+	</ReqTextContent>
+	<!--请求消息内容值：消息类型为image有效，暂不支持-->
+	<ReqImageContent/>
+	<!--请求消息内容值：消息类型为voicr有效，暂不支持-->
+	<ReqVoiceContent/>
+	<!--请求消息内容值：消息类型为video有效，暂不支持-->
+	<ReqVideoContent/>
+	<!--请求消息内容值：消息类型为shortvideo有效，暂不支持-->
+	<ReqShortvideoContent/>
+	<!--请求消息内容值：消息类型为location有效，暂不支持-->
+	<ReqLocationContent/>
+	<!--请求消息内容值：消息类型为link有效，暂不支持-->
+	<ReqLinkContent/>
+</ReqMsg>

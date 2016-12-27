@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.weixin.common.mapper.AccessTokenMapper" >
+	<resultMap id="BaseResultMap" type="com.weixin.common.model.token.AccessToken">
+		<id column="id" property="id"/>
+		<id column="access_token" property="access_token"/>
+		<id column="last_date" property="last_date"/>
+		<id column="period" property="period"/>
+	</resultMap>
+
+	<select id="getAccessToken" resultType="com.weixin.common.model.token.AccessToken" >
+		select id,access_token,last_date,period from access_token
+	</select>
+	
+	<update id="updateAccessToken" parameterType="com.weixin.common.model.token.AccessToken">
+	    update access_token set access_token = #{access_token} ,last_date = now() ,period = #{period} where id = #{id}
+	</update>
+
+	<insert id="insertAccessToken" parameterType="com.weixin.common.model.token.AccessToken">
+		<selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into access_token (id,access_token,last_date,period) values (#{id}, #{access_token}, now(), #{period})
+	</insert>
+</mapper>

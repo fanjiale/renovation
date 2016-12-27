@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MenuList>
+	<!-- 目录 -->
+	<Menu>
+		<!-- Key -->
+		<Key>1</Key>
+		<!-- 名称 -->
+		<Name>有哈哈</Name>
+		<!-- 类型（click、view、父目录不填） -->
+		<Type></Type>
+		<!-- 跳转跳转地址（view类型必填） -->
+		<Url></Url>
+		<!-- 是否需用“弹出授权页面”（Y/N，默认为N，空也为N）-->
+		<IsOAuthPage></IsOAuthPage>
+		<!-- 子目录列表 -->
+		<MenuSubList>
+			<!-- 子目录 -->
+			<MenuSub>
+				<!-- Key -->
+				<Key>11</Key>
+				<!-- 名称 -->
+				<Name>订购查询</Name>
+				<!-- 类型（click、view、父目录不填） -->
+				<Type>click</Type>
+				<!-- 菜单跳转地址（view类型必填） -->
+				<Url></Url>
+				<!-- 是否需用“弹出授权页面”（Y/N，默认为N，空也为N）-->
+				<IsOAuthPage></IsOAuthPage>
+			</MenuSub>
+			<MenuSub>
+				<Key>12</Key>
+				<Name>清单查询</Name>
+				<Type>click</Type>
+				<Url></Url>
+				<IsOAuthPage></IsOAuthPage>
+			</MenuSub>
+			<MenuSub>
+				<Key>13</Key>
+				<Name>业务退订</Name>
+				<Type>click</Type>
+				<Url></Url>
+				<IsOAuthPage></IsOAuthPage>
+			</MenuSub>	
+			<MenuSub>
+				<Key>14</Key>
+				<Name>业务订购</Name>
+				<Type>click</Type>
+				<Url></Url>
+				<IsOAuthPage></IsOAuthPage>
+			</MenuSub>		
+		</MenuSubList>
+	</Menu>
+	<Menu>
+		<Key>2</Key>
+		<Name>有噱头</Name>
+		<Type></Type>
+		<Url></Url>
+		<IsOAuthPage></IsOAuthPage>
+		<MenuSubList>
+			<MenuSub>
+				<Key>21</Key>
+				<Name>活动</Name>
+				<Type>click</Type>
+				<Url></Url>
+				<IsOAuthPage></IsOAuthPage>
+			</MenuSub>
+			<MenuSub>
+				<Key>22</Key>
+				<Name>推荐</Name>
+				<Type>click</Type>
+				<Url></Url>
+				<IsOAuthPage></IsOAuthPage>
+			</MenuSub>
+			<MenuSub>
+				<Key>23</Key>
+				<Name>抽奖</Name>
+				<Type>click</Type>
+				<Url></Url>
+				<IsOAuthPage></IsOAuthPage>
+			</MenuSub>		
+			<MenuSub>
+				<Key>24</Key>
+				<Name>福利</Name>
+				<Type>click</Type>
+				<Url></Url>
+				<IsOAuthPage></IsOAuthPage>
+			</MenuSub>	
+		</MenuSubList>
+	</Menu>
+	<Menu>
+		<Key>3</Key>
+		<Name>有精彩</Name>
+		<Type></Type>
+		<Url></Url>
+		<IsOAuthPage></IsOAuthPage>
+		<MenuSubList>
+			<MenuSub>
+				<Key>31</Key>
+				<Name>手机绑定</Name>
+				<Type>view</Type>
+				<Url><![CDATA[http://h1532l6172.imwork.net/restaurant/viewController/uesrAccessController?url=userBound/userBound.jsp]]></Url>
+				<IsOAuthPage>Y</IsOAuthPage>
+			</MenuSub>
+			<MenuSub>
+				<Key>32</Key>
+				<Name>业务介绍</Name>
+				<Type>click</Type>
+				<Url></Url>
+				<IsOAuthPage></IsOAuthPage>
+			</MenuSub>
+			<MenuSub>
+				<Key>33</Key>
+				<Name>关注我们1</Name>
+				<Type>view</Type>
+				<Url><![CDATA[http://h1532l6172.imwork.net/restaurant/restaurant/view/index.html]]></Url>
+				<IsOAuthPage></IsOAuthPage>
+			</MenuSub>	
+			<MenuSub>
+				<Key>34</Key>
+				<Name>APP下载1</Name>
+				<Type>click</Type>
+				<Url><![CDATA[http://h1532l6172.imwork.net/restaurant/restaurant/view/index.html]]></Url>
+				<IsOAuthPage></IsOAuthPage>
+			</MenuSub>	
+		</MenuSubList>
+	</Menu>
+</MenuList>
