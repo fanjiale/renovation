@@ -1,0 +1,105 @@
+html{
+    height: 100%;
+}
+.area-select-box{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 1000;
+    overflow: hidden;
+    display: none;
+}
+.area-select-background{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.7;
+}
+.area-select-obj{
+    position: absolute;
+    top: 0px;
+    width: 78.4%;
+    height: 101%;
+    background-color: #f8f8f8;
+    display: table;
+    border: 1px solid #eee;
+    font-size: 14px;
+    -webkit-transform: translate3d(27.6%,0px,0px);
+    -moz-transform: translate3d(27.6%,0px,0px);
+    -ms-transform: translate3d(27.6%,0px,0px);
+    -o-transform: translate3d(27.6%,0px,0px);
+    transform: translate3d(27.6%,0px,0px);
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.area-mark{
+    -webkit-transform: translate3d(128%,0px,0px);
+    -moz-transform: translate3d(128%,0px,0px);
+    -ms-transform: translate3d(128%,0px,0px);
+    -o-transform: translate3d(128%,0px,0px);
+    transform: translate3d(128%,0px,0px);
+}
+.area-select-obj .area-select{
+    display: table-cell;
+    height: 100%;
+    position: relative;
+}
+.area-province{
+    width: 47%;
+    background: white;
+}
+.area-select-province li{
+    background: white;
+    border-right: 1px solid #eee;
+}
+.area-select-province li.on{
+    background: #f8f8f8;
+    border-right: 0;
+    color: #34c083;
+}
+.area-select-province li.on .area-select-option {
+    color: #34c083;
+}
+.area-select-option{
+    margin-left: 20px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #eee;
+}
+.area-select li:last-child .area-select-option{
+    border: none;
+}
+.area-select-option > span{
+    margin-right: 4px;
+    color: #c7c7c7;
+}
+.area-select-province li.on .area-select-option > span{
+    color: #34c083;
+}
+.area-select-province,.area-select-city{
+    width: 100%;
+    position: absolute;
+    top: 0px;
+}
+.area-select-city{
+    background: #f8f8f8;
+}
+.area-select-city li.on{
+    color: #34c083;
+}
+.area-select .area-background-tab{
+    background: #ececec;
+}
+.transition-select{
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+/*anjuke.css 影响所加*/
+.area-select::after {
+    display: none;
+}   

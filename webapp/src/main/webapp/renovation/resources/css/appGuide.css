@@ -1,0 +1,386 @@
+html{
+    height: 100%;
+    font-size: 100px;
+}
+.bar-appguide{
+    background: rgba(0, 0, 0, 0.7);
+    height: 73px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+}
+.appguide-box{
+    padding: 7px 0 3px 7px;
+}
+.appguide-img{
+    float: left;
+}
+.appguide-img img{
+    width: 110px;
+    height: 59px;
+}
+.appguide-text{
+    float: left;
+    margin-left: 3%;
+}
+.appguide-text .appguide-p1{
+    font-size: 0.13rem;
+    color: #ffe500;
+    margin-top: 3px;
+}
+.appguide-text .appguide-p2{
+    font-size: 0.08rem;
+    color: #aaaaaa;
+    margin-top: 3px;
+}
+.appguide-text .appguide-p3{
+    width: 80%;
+    font-size: 0.08rem;
+    color: #34c083;
+    padding: 3px 0 3px 3px;
+    border-radius: 5px;
+    border: 1px solid #3d7158;
+    position: relative;
+    margin-top: 8px;
+}
+.appguide-text .appguide-finger{
+    position: absolute;
+    width: 23px;
+    height: 27px;
+    right: -25px;
+    top: 0;
+}
+.whan-ad{
+    display: none;
+}
+
+/* 微信小号引导banner */
+
+.banner-wx-new {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0 15px;
+    z-index: 39;
+    width: 100%;
+    padding: 5px 12px;
+    background: rgba(51, 51,51, 0.85);
+    color: #fff;
+}
+.banner-wx-new-img {
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+  vertical-align: middle;
+}
+.banner-wx-new-img img {
+    width: 103px;
+    height: 80px;
+}
+.banner-wx-new-text {
+    display: inline-block;
+    width: 75%;
+    line-height: 23px;
+    padding-left: 7px;
+    vertical-align: middle;
+    font-size: 14px;
+}
+.banner-wx-new-text p {
+    color: #fff;
+}
+.banner-wx-new-text-name {
+  color: #34c083;
+}
+.banner-wx-new-text-number {
+  color: #e57e04;
+}
+.banner-wx-new-text-hao {
+    color: #e57e04;
+}
+body{
+    -webkit-user-select:text !important;
+    user-select:text !important;
+}
+.banner-wx-new-text{
+    -webkit-user-select:none !important;
+    user-select:none !important;
+}
+#banner-wx-new-text-hao{
+     -webkit-user-select:text !important;
+    user-select:text !important;
+}
+.banner-wx-new-text-tip {
+  color: #e57e04;
+}
+@media screen and (max-width: 365px){
+   .banner-wx-new-text {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 380px){
+   .banner-wx-new-img img {
+        height: 68px;
+    }
+}
+
+
+/* 微信小号引导banner */
+.banner-wx-new-text-btn {
+    width: 0.83rem;
+    vertical-align: middle;
+    
+}
+.weixin-pop-wx3-btn {
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 5px;
+    margin-left: 7px;
+    vertical-align: baseline;
+    font-size: 12px;
+    background-color: #22cc77;
+}
+.weixin-pop-wx3-btn-text {
+    display: inline-block;
+    color: #fff;
+    padding-left: 5px;
+}
+.weixin-pop-wx3-btn-icon {
+    width: 0.15rem;
+    height: 0.12rem;
+    vertical-align: sub;
+}
+/* 按钮放大动效 */
+@-webkit-keyframes pulse-btn {
+        0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    10% {
+       -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    20% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+     50% {
+       -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    60% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    70% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    80% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+     90% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@-moz-keyframes pulse-btn {
+       0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    10% {
+       -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    20% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+     50% {
+       -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    60% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    70% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    80% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+     90% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes pulse-btn {
+      0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    10% {
+       -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    20% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+     50% {
+       -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    60% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    70% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    80% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+     90% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.pulse-btn {
+   -webkit-animation: pulse-btn 5s infinite;
+    -moz-animation: pulse-btn 5s infinite;
+    animation: pulse-btn 5s infinite;
+}
+
+@media screen and (max-width: 330px){
+   .banner-wx-new-img img {
+        height: 60px;
+    }
+    .weixin-pop-wx3-btn {
+        padding: 2px 3px;
+    }
+    .weixin-pop-wx3-btn-text {
+        padding-left: 2px;
+    }
+    .weixin-pop-wx3-btn {
+        margin-left: 5px;
+    }
+}
+
+/* 微信小号弹窗 */
+ .banner-wx-new-pop {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 103;
+        background-color: rgba(51,51,51,0.6);
+    }
+    .banner-wx-new-pop-box {
+        width: 206px;
+        height: 96px;
+        background-color: #fff;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -103px;
+        margin-top: -48px;
+        text-align: center;
+    }
+    .banner-wx-new-pop-box-tip {
+        height: 50%;
+        padding-top: 15px;
+        font-size: 14px;
+        margin-left: 0;
+    }  
+    .banner-wx-new-pop-box-tip img {
+        width: 20px;
+        height: 29px;
+        margin-left: 2px;
+        margin-top: -8px;
+        vertical-align: text-top;
+    }  
+    .banner-wx-new-pop-box-num {
+        height: 50%;
+        padding-top: 15px;
+        background-color: #25c875;
+        color: #fff;
+        font-size: 20px;
+        
+    }
+    .banner-wx-new-pop-box,.new-result-box {
+        -webkit-user-select: none !important;
+        user-select:none !important;
+    }
+    body #banner-wx-new-pop-box-num {
+        -webkit-user-select: text !important;
+        user-select:text !important;
+    }
+    .banner-wx-new-pop-box-close {
+        position: absolute;
+        right: -1px;
+        top: -50px;
+        width: 28px;
+        padding-top: 4px;
+        height: 28px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 18px;
+    }
+    /* 微信小号弹窗 */
+
+    @media screen and (min-width: 400px){ 
+            .banner-wx-new-text {
+                padding-left: 20px;
+            }
+            .banner-wx-new-img img {
+                height: 75px;
+            }
+        }

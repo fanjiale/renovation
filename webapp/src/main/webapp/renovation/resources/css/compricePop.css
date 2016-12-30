@@ -1,0 +1,275 @@
+.mfsj-location-pov ,
+.mfsj-location-city{
+    float: left;
+    width: 50%;
+
+}
+.mfsj-location-row .mfsj-prov-wrap:after,
+.mfsj-location-row .mfsj-city-wrap:after{
+    position: absolute;
+    content: "";
+    display: block;
+    border-top: 5px solid #666;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    top: 20px;
+    right: 10px;
+}
+.mfsj-location-row .mfsj-prov-wrap{
+    position: relative;
+    margin-right: 5px;
+    border-radius: 0;
+}
+
+.mfsj-location-row .mfsj-city-wrap{
+    position: relative;
+    margin-left: 5px;
+    border-radius: 0;
+}
+.mfsj-location-row select{
+    height: 44px;
+    line-height: 46px;
+    border: 1px solid #e3e3e3;
+    width: 100%;
+     background-color: #fff;
+    padding: 0 15px;
+}
+.mfsj-from input,.mfsj-from select{
+    -webkit-appearance : none;
+    -moz-appearance : none;
+    appearance : none;
+    outline: 0;
+    font-size: 14px;
+    display: block;
+    background: #fff;
+    -webkit-border-radius:0;
+    border-radius: 0;
+}
+.mfsj-from .row {
+    position: relative;
+    display: block;
+    height: 44px;
+    margin-bottom: 10px;
+    width: 100%;
+    border:1px solid #e3e3e3;
+ }
+ .mfsj-from{
+    padding: 10px 15px;
+}
+.mfsj-location-row{
+    border: 0!important;
+}
+.t8s-areas-input,.t8s-phone-input, .t8s-provinces-input {
+    -webkit-appearance: none;
+    outline: none;
+    padding-left: 10px;
+    display: inline-block; 
+}
+.t8s-alert-form div input[type='text'], .t8s-alert-form div input[type='tel'] {
+  display: block;
+  height: 42px;
+  border: none;
+  text-align: left;
+  width: 100%; 
+  border: 0;
+}
+.t8s-shi,.t8s-ting{
+    float: left;
+    width: 50%;
+    height: 44px;
+}
+.t8s-chu{
+    float: left;
+    width: 31%;
+}
+.t8s-wei{
+    float: left;
+    width: 31%;
+    margin: 0 0 0 3.5%;
+}
+.t8s-yangtai{
+    float: right;
+    margin: 0 0 0 3.5%;
+    width: 31%;
+}
+.t8s-shi-wrap{
+    position: relative;
+    margin-right: 5px;
+    border-radius: 0;
+}
+.t8s-ting-wrap{
+    position: relative;
+    margin-left: 5px;
+    border-radius: 0;
+}
+.t8s-chu-wrap{
+    position: relative;
+    border-radius: 0;
+}
+.t8s-wei-wrap{
+    position: relative;
+    border-radius: 0;
+}
+.t8s-yangtai-wrap{
+    position: relative;
+    border-radius: 0;
+}
+.t8s-shi-wrap:after,.t8s-ting-wrap:after,.t8s-chu-wrap:after,.t8s-wei-wrap:after,.t8s-yangtai-wrap:after{
+    position: absolute;
+    content: "";
+    display: block;
+    border-top: 5px solid #666;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    top: 20px;
+    right: 10px;
+}
+.t8s-form-box .mfsj-location-row select{
+    line-height: 44px;
+}
+.t8s-form-box .mfsj-location-row select{
+    padding: 0 7px;
+}
+.t8s-price-list{
+    border: 1px solid #d3d3d3;width: 100%;
+}
+.t8s-price-list ul{
+    margin: 30px 0;
+}
+.t8s-price-list ul li{
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 10px;    
+    padding: 0 10px;
+}
+.t8s-price-list ul li span{
+    float: left;
+    width: 57%;
+    font-size: 16px;
+    color: #333;
+    vertical-align: bottom;
+    text-align: left;
+}
+.t8s-price-list li span em {
+    padding: 0 10px;
+}
+.t8s-price-list li span del {
+    margin-left: 5px;
+    font-size: 14px;
+    color: #999;
+}
+.t8s-price-list .t8s-budget-span{
+    width: 43%;
+    text-align: right;
+}
+.t8s-fruit-price {
+    margin-bottom: 15px;
+}
+
+.t8s-error{
+    color: #ff0000;
+    font-size: 12px;
+    text-align: left;
+}
+.t8s-needsclick{
+    display: none !important;
+}
+.t8s-error-div{    
+    height: 65px;
+    position: relative;
+}
+.t8s-error-input{
+    border: 1px solid #ff0000 !important;
+    margin-bottom: 0 !important;
+}
+.t8s-box{
+    left: 0%;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -ms-transform:  translate3d(0,0,0);
+    -moz-transform:  translate3d(0,0,0);
+    -o-transform:  translate3d(0,0,0);
+    -webkit-transform:  translate3d(0,0,0);
+    transform:  translate3d(0,0,0);
+}
+.t8s-go{    
+    -ms-transform: scale(0.05,0.05) translate3d(0,0,0);
+    -moz-transform: scale(0.05,0.05) translate3d(0,0,0);
+    -o-transform: scale(0.05,0.05) translate3d(0,0,0);
+    -webkit-transform: scale(0.05,0.05) translate3d(0,0,0);
+    transform: scale(0.05,0.05) translate3d(0,0,0);
+    top: 95% !important;
+    left: 10% !important;
+}
+.t8s-alert-i{
+    background: url(http://img.to8to.com/wap/v2/index-page-sprite-v2.png?v=20160805) no-repeat -53px -179px;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: -5px;
+    right: -6px;
+    background-size: 115px 593px;
+}
+
+.t8s_User_Town{
+    display: none;
+}
+.t8s-area,.t8s-phone, .t8s-provinces {
+    position: relative;
+    background: #fff;
+    border: solid 1px #e1e1e1;
+    margin-bottom: 10px;
+    overflow: hidden;
+    height: 42px;
+}
+.t8s-provinces:after {
+    position: absolute;
+    content: "";
+    display: block;
+    border-top: 5px solid #666;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    top: 18px;
+    right: 10px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+.t8s-area span{
+    position: absolute;
+    top: 8px;
+    z-index: 2;
+    right: 10px;
+    font-size: 18px;
+    vertical-align: 6px;
+}
+.mfsj-from  .t8s-jiting.row{
+    height: 98px;
+}
+.t8s-jiting-box,.t8s-chuwei-box{
+    position: relative;
+    background: #fff;
+    overflow: hidden;
+    height: 44px;
+    margin-bottom: 10px;
+}
+.t8s-error-box{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.t8s-submit{
+    width: 100%;
+    height: 44px;
+    background-color: #ff9926;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    line-height: 44px;
+    margin-top: 10px;
+}
+.t8s-error-div .t8s-area,.t8s-error-div .t8s-phone{
+    border: 1px solid #ff0000 !important;
+}
